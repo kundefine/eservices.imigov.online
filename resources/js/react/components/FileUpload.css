@@ -1,0 +1,39 @@
+.upload-image-container {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+.upload-img-preview {
+    overflow: hidden;
+    width: 250px;
+    height: 250px;
+    margin-right: 10px;
+    background: #ddd;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    margin-bottom: 10px;
+}
+.upload-image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.file-upload-input {
+    border: 1px solid #ddd;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.file-upload-input label {
+    margin: 0;
+    background: #ddd;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 3px 0 0 3px;
+
+}

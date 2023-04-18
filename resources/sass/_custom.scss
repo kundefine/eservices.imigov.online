@@ -1,0 +1,41 @@
+// Write your custom css/scss here
+
+.btn-outline-secondary {
+  border-color: #e8ebf1;
+}
+
+.btn-outline-secondary:hover {
+  color: #fff;
+  background-color: #e8ebf1;
+  border-color: #e8ebf1;
+}
+
+.al-alert {
+  position: fixed;
+  z-index: 99999;
+  min-width: 500px;
+  right: -100%;
+  transition: all 1s;
+}
+
+.al-alert.al-active {
+  right: 0;
+}
+
+.al-heading {
+  margin: -12px -20px;
+  border-bottom: 2px solid #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 10px;
+}
+.al-body {
+  margin: 40px 0px 10px;
+  padding: 0;
+  line-height: 30px;
+}
+.al-body * {
+  color: white;
+}
+
