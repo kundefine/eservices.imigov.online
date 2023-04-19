@@ -15,6 +15,7 @@ require_once __DIR__ . '/admin/sale_routes.php';
 require_once __DIR__ . '/admin/customer_routes.php';
 require_once __DIR__ . '/admin/company_routes.php';
 require_once __DIR__ . '/admin/payment_method_routes.php';
+require_once __DIR__ . '/admin/pra_status_routes.php';
 
 
 // user routes
@@ -23,7 +24,7 @@ require_once __DIR__ . '/nobel-ui_routes.php';
 
 
 Route::view('/', 'index');
-Route::get("/.my/myimms/PRAStatus", [\App\Http\Controllers\PraStatusController::class, 'index'])->name('pra_status');
+Route::get("/my/myimms/PRAStatus", [\App\Http\Controllers\PraStatusController::class, 'index'])->name('pra_status');
 
 
 Auth::routes();

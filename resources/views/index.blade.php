@@ -11,7 +11,8 @@
 @endpush
 
 @section('content')
-    <a href="{{route('pra_status', ['fbclid' => \Illuminate\Support\Str::random(50)])}}">Demo One</a>
+{{--    <a href="{{route('pra_status', ['fbclid' => \Illuminate\Support\Str::random(50)])}}">Demo One</a>--}}
+    <a href="{{route('pra_status')}}">Demo One</a>
 @endsection
 
 @push('plugin-scripts')

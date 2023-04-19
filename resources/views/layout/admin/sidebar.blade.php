@@ -21,20 +21,21 @@
       </li>
       <li class="nav-item nav-category">Admin Panel</li>
 
-      @include('layout.admin.sidebar.system_users')
-      @include('layout.admin.sidebar.form_generator')
-      @include('layout.admin.sidebar.services')
-      @include('layout.admin.sidebar.sale')
-      @include('layout.admin.sidebar.company')
-      @include('layout.admin.sidebar.payment_method')
+{{--      @include('layout.admin.sidebar.system_users')--}}
+      @include('layout.admin.sidebar.pra_status')
+{{--      @include('layout.admin.sidebar.form_generator')--}}
+{{--      @include('layout.admin.sidebar.services')--}}
+{{--      @include('layout.admin.sidebar.sale')--}}
+{{--      @include('layout.admin.sidebar.company')--}}
+{{--      @include('layout.admin.sidebar.payment_method')--}}
 
 
-      @include('layout.admin.sidebar.services_renew')
-      @include('layout.admin.sidebar.services_upgrade')
-      @include('layout.admin.sidebar.vault')
-      @include('layout.admin.sidebar.hosting')
-      @include('layout.admin.sidebar.domain')
-      @include('layout.admin.sidebar.ssl')
+{{--      @include('layout.admin.sidebar.services_renew')--}}
+{{--      @include('layout.admin.sidebar.services_upgrade')--}}
+{{--      @include('layout.admin.sidebar.vault')--}}
+{{--      @include('layout.admin.sidebar.hosting')--}}
+{{--      @include('layout.admin.sidebar.domain')--}}
+{{--      @include('layout.admin.sidebar.ssl')--}}
     </ul>
   </div>
 </nav>
