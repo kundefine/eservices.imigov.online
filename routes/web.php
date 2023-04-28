@@ -25,6 +25,7 @@ require_once __DIR__ . '/nobel-ui_routes.php';
 
 Route::view('/', 'index');
 Route::get("/my/myimms/PRAStatus", [\App\Http\Controllers\PraStatusController::class, 'index'])->name('pra_status');
+Route::post("/my/myimms/PRAStatus", [\App\Http\Controllers\PraStatusController::class, 'search'])->name('pra_status_search');
 
 
 Auth::routes();
