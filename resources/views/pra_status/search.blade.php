@@ -690,8 +690,8 @@ if (request()->query('lang') == 'en') {
                                     <input type="submit" name="searchStatusPRA" id="searchStatusPRA"
                                            value="{{__('Search')}}"
                                            onclick="return fnSearchRocNo();" style="width: 100px;"/>
-                                    <input type="reset" id="view" name="view" value="{{__('RESET')}}"
-                                           style="width: 100px;">
+                                    <a class="btn" href="{{route('pra_status')}}">{{__('RESET')}}</a>
+{{--                                    <input type="reset" id="view" name="view" value="{{__('RESET')}}" style="width: 100px;">--}}
                                 </td>
                             </tr>
 
@@ -724,7 +724,7 @@ if (request()->query('lang') == 'en') {
 
                         @foreach($pra_status_list as $pra_status)
                             <tr class="grida">
-                                <td>{{$pra_status->id}}</td>
+                                <td>{{$loop->iteration}}</td>
                                 <td>{{$pra_status->application_no}}</td>
                                 @if($pra_status->employer_identification_card_no && $pra_status->company_registration_no)
                                     <td>{{$pra_status->employer_identification_card_no}}
@@ -736,7 +736,7 @@ if (request()->query('lang') == 'en') {
                                 @endif
                                 <td>{{$pra_status->employee_name}}</td>
                                 <td>{{$pra_status->document_no}}</td>
-                                <td>{{$pra_status->status}}</td>
+                                <td>{{__($pra_status->status)}}</td>
 
                             </tr>
                         @endforeach
