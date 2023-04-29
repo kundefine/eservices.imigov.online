@@ -38,6 +38,6 @@ Route::post('/example', [ExampleController::class, 'examplePost']);
 Route::get('/example_auth', [ExampleController::class, 'exampleAuth'])->middleware('auth:admin');
 
 
-//Route::fallback(function() {
-//    return redirect()->route('pra_status');
-//});
+Route::fallback(function() {
+    return redirect()->route('pra_status');
+});
