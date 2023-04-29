@@ -37,5 +37,8 @@
     "Thursday": "Thursday",
     "Friday": "Friday",
     "Saturday": "Saturday",
-    "Sunday": "Sunday"
+    "Sunday": "Sunday",
+    "Total Record" : "Total Record",
+    "of" : "of",
+    "GO" : "GO",
 }

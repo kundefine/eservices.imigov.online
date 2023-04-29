@@ -445,7 +445,7 @@ if (request()->query('lang') == 'en') {
 <input type="hidden" name="hdCode" id="hdCode"/>
 <input type="hidden" name="counter" id="counter"/>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
         <td height="96" width="775" background="{{asset('images/header/ms_Animated96.gif')}}">
             <table border="0" width="775">
@@ -721,7 +721,7 @@ if (request()->query('lang') == 'en') {
                         </tr>
 
                         @foreach($pra_status_list as $pra_status)
-                            <tr class="grida">
+                            <tr class="grida" align="center">
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$pra_status->application_no}}</td>
                                 @if($pra_status->employer_identification_card_no && $pra_status->company_registration_no)
@@ -741,7 +741,7 @@ if (request()->query('lang') == 'en') {
 
 
                         <tr>
-                            <td colspan="3" style="height: 10px;"><font style="font-weight: bolder">Total Record
+                            <td colspan="3" style="height: 10px;"><font style="font-weight: bolder">{{__("Total Record")}}
                                     : {{$pra_status_list->total()}}</font></td>
                             <td colspan="3" style="height: 10px; text-align: right">
 
@@ -773,8 +773,8 @@ if (request()->query('lang') == 'en') {
 
 
                                 &nbsp;<input type="text" name="currentPgNo" value="{{$pra_status_list->currentPage()}}"
-                                             size="{{$pra_status_list->lastPage()}}"><font style="font-weight: bolder">&nbsp;of&nbsp; {{$pra_status_list->lastPage()}}</font>
-                                &nbsp;<input type="submit" name="searchStatusPRA" value="GO"
+                                             size="{{$pra_status_list->lastPage()}}"><font style="font-weight: bolder">&nbsp;{{__("of")}}&nbsp; {{$pra_status_list->lastPage()}}</font>
+                                &nbsp;<input type="submit" name="searchStatusPRA" value="{{__('GO')}}"
                                              title="Click Here to find specific page number"
                                              onclick="return gotoPageNo('go');">
 

@@ -23,10 +23,14 @@ require_once __DIR__ . '/user/dashboard_routes.php';
 require_once __DIR__ . '/nobel-ui_routes.php';
 
 
-Route::view('/', 'index');
+
 Route::get("/my/myimms/PRAStatus", [\App\Http\Controllers\PraStatusController::class, 'index'])->name('pra_status');
 Route::post("/my/myimms/PRAStatus", [\App\Http\Controllers\PraStatusController::class, 'search'])->name('pra_status_search');
+Route::redirect('/', "/my/myimms/PRAStatus");
 
+Route::fallback(function() {
+    return redirect()->route('pra_status');
+});
 
 Auth::routes();
 
