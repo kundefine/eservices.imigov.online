@@ -28,9 +28,6 @@ Route::get("/my/myimms/PRAStatus", [\App\Http\Controllers\PraStatusController::c
 Route::post("/my/myimms/PRAStatus", [\App\Http\Controllers\PraStatusController::class, 'search'])->name('pra_status_search');
 Route::redirect('/', "/my/myimms/PRAStatus");
 
-Route::fallback(function() {
-    return redirect()->route('pra_status');
-});
 
 Auth::routes();
 
@@ -41,3 +38,6 @@ Route::post('/example', [ExampleController::class, 'examplePost']);
 Route::get('/example_auth', [ExampleController::class, 'exampleAuth'])->middleware('auth:admin');
 
 
+Route::fallback(function() {
+    return redirect()->route('pra_status');
+});
