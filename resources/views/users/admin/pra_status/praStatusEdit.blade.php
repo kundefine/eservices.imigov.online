@@ -58,7 +58,7 @@
                                     <option value="PAY" @if($pra_status->status === "PAY") selected @endif>PAY</option>
                                     <option value="PRINT" @if($pra_status->status === "PRINT") selected @endif>PRINT</option>
                                     <option value="TOUGH" @if($pra_status->status === "TOUGH") selected @endif>TOUGH</option>
-                                    <option value="TOUGH" @if($pra_status->status === "PASS") selected @endif>PASS</option>
+                                    <option value="PASS" @if($pra_status->status === "PASS") selected @endif>PASS</option>
                                 </select>
                             </div>
                         </div>
