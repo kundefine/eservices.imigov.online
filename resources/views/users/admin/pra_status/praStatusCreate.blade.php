@@ -57,6 +57,7 @@
                                     <option value="PAY">PAY</option>
                                     <option value="PRINT">PRINT</option>
                                     <option value="TOUGH">TOUGH</option>
+                                    <option value="TOUGH">PASS</option>
                                 </select>
                             </div>
                         </div>
