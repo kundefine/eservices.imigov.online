@@ -26,23 +26,30 @@
                             <h6>Create</h6>
                         </div>
                         <div class="card-body">
+                            <div class="form-group">
+                                <label for="" class="">Application Date</label>
+                                <input type="date" class="form-control" name="application_date" value="{{$pra_status->application_date}}">
+                            </div>
 
                             <div class="form-group">
                                 <label for="" class="">Application Number</label>
                                 <input type="text" class="form-control" name="application_no" value="{{$pra_status->application_no}}">
                             </div>
+
+                             <div class="form-group">
+                                <label for="" class="">Name</label>
+                                <input type="text" class="form-control" name="employee_name" value="{{$pra_status->employee_name}}">
+                            </div>
+
                             <div class="form-group">
-                                <label for="" class="">Employer Identification Card No.</label>
+                                <label for="" class="">Nationality</label>
                                 <input type="text" class="form-control" name="employer_identification_card_no" value="{{$pra_status->employer_identification_card_no}}">
                             </div>
                             <div class="form-group">
                                 <label for="" class="">Company Registration No.</label>
                                 <input type="text" class="form-control" name="company_registration_no" value="{{$pra_status->company_registration_no}}">
                             </div>
-                            <div class="form-group">
-                                <label for="" class="">Name of Maid/Employee</label>
-                                <input type="text" class="form-control" name="employee_name" value="{{$pra_status->employee_name}}">
-                            </div>
+
                             <div class="form-group">
                                 <label for="" class="">Document Number</label>
                                 <input type="text" class="form-control" name="document_no" value="{{$pra_status->document_no}}">
@@ -51,10 +58,11 @@
                                 <label for="" class="">Status</label>
                                 <select class="form-control" name="status">
                                     <option value="">Please Select One</option>
-                                    <option value="ACCEPTED" @if($pra_status->status === "ACCEPTED") selected @endif>ACCEPTED</option>
+                                    <option value="ACCEPT" @if($pra_status->status === "ACCEPT") selected @endif>ACCEPT</option>
                                     <option value="NEW" @if($pra_status->status === "NEW") selected @endif>NEW</option>
+                                    <option value="APPROVE" @if($pra_status->status === "APPROVE") selected @endif>APPROVE</option>
                                     <option value="REJECT" @if($pra_status->status === "REJECT") selected @endif>REJECT</option>
-                                    <option value="CANCELLED" @if($pra_status->status === "CANCELLED") selected @endif>CANCELLED</option>
+                                    <option value="CANCEL" @if($pra_status->status === "CANCEL") selected @endif>CANCEL</option>
                                     <option value="PAY" @if($pra_status->status === "PAY") selected @endif>PAY</option>
                                     <option value="PRINT" @if($pra_status->status === "PRINT") selected @endif>PRINT</option>
                                     <option value="TOUGH" @if($pra_status->status === "TOUGH") selected @endif>TOUGH</option>

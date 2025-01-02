@@ -44,10 +44,10 @@
                                 <label for="" class="">Nationality</label>
                                 <input type="text" class="form-control" name="employer_identification_card_no">
                             </div>
-                            {{--<div class="form-group">
+                            <div class="form-group">
                                 <label for="" class="">Company Registration No.</label>
                                 <input type="text" class="form-control" name="company_registration_no">
-                            </div>--}}
+                            </div>
 
                             <div class="form-group">
                                 <label for="" class="">Document Number</label>
@@ -57,13 +57,13 @@
                                 <label for="" class="">Status</label>
                                 <select class="form-control" name="status">
                                     <option value="">Please Select One</option>
-                                    <option value="ACCEPTED">ACCEPTED</option>
-                                    <option value="NEW">NEW</option>
-                                    <option value="APPROVED">APPROVED</option>
-                                    <option value="REJECT">REJECT</option>
-                                    <option value="CANCELLED">CANCELLED</option>
+                                    <option value="ACCEPT">{{__('ACCEPT')}}</option>
+                                    <option value="NEW">{{__('NEW')}}</option>
+                                    <option value="APPROVE">{{__('APPROVE')}}D</option>
+                                    <option value="REJECT">{{__('REJECT')}}</option>
+                                    <option value="CANCEL">{{__('CANCEL')}}</option>
 {{--                                    <option value="PAY">PAY</option>--}}
-                                    <option value="PRINT">PRINT</option>
+                                    <option value="PRINT">{{__('PRINT')}}</option>
 {{--                                    <option value="TOUGH">TOUGH</option>--}}
 {{--                                    <option value="PASS">PASS</option>--}}
                                 </select>
