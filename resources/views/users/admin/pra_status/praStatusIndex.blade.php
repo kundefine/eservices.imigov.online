@@ -6,13 +6,13 @@
 
 @endpush
 
-@section('title', 'PraStatus - All PraStatus')
+@section('title', 'Application - All Application')
 
 @section('content')
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">PraStatus</a></li>
-            <li class="breadcrumb-item active" aria-current="page">All PraStatus</li>
+            <li class="breadcrumb-item"><a href="#">Application</a></li>
+            <li class="breadcrumb-item active" aria-current="page">All Application</li>
         </ol>
     </nav>
 
@@ -20,7 +20,7 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h6 class="card-title">PraStatus List</h6>
+                    <h6 class="card-title">Application List</h6>
                     <div class="table-responsive">
                         <table id="dataTableExample" class="table">
                             <thead>
@@ -28,9 +28,9 @@
                                 <th>#</th>
                                 <th>id</th>
                                 <th>Application Number</th>
-                                <th>No. Employer Identification Card</th>
-                                <th>No. Company Registration</th>
-                                <th>Name of Maid/Employee</th>
+                                <th>Nationality</th>
+{{--                                <th>No. Company Registration</th>--}}
+                                <th>Applicant Name</th>
                                 <th>Document Number</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -43,7 +43,7 @@
                                     <td style="width: 300px">{{$pra_status->id}}</td>
                                     <td>{{$pra_status->application_no}}</td>
                                     <td>{{$pra_status->employer_identification_card_no}}</td>
-                                    <td>{{$pra_status->company_registration_no}}</td>
+{{--                                    <td>{{$pra_status->company_registration_no}}</td>--}}
                                     <td>{{$pra_status->employee_name}}</td>
                                     <td>{{$pra_status->document_no}}</td>
                                     <td>{{$pra_status->status}}</td>

@@ -44,9 +44,9 @@
 
 <nav class="settings-sidebar">
   <div class="sidebar-body">
-    <a href="#" class="settings-sidebar-toggler">
-      <i data-feather="settings"></i>
-    </a>
+{{--    <a href="#" class="settings-sidebar-toggler">--}}
+{{--      <i data-feather="settings"></i>--}}
+{{--    </a>--}}
     <h6 class="text-muted">Sidebar:</h6>
     <div class="form-group border-bottom">
       <div class="form-check form-check-inline">

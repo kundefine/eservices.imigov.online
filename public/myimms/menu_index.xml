@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Menus>
+	<Business name="16">
+		<Module type="macs">
+			<Title_ms>Permohonan MACS</Title_ms>
+			<Title_en>MACS Application</Title_en>
+			<SubMenus>
+				<menu_ms>Permohonan MACS</menu_ms>
+				<menu_en>MACS Application</menu_en>
+				<url>macs</url>
+			</SubMenus>
+			<SubMenus>
+				<menu_ms>Cetak Semula Permohonan</menu_ms>
+				<menu_en>Reprint</menu_en>
+				<url>macsreprint</url>
+			</SubMenus>
+			<SubMenus>
+				<menu_ms>Carta Aliran</menu_ms>
+				<menu_en>Process Flow</menu_en>
+				<url>macsmanualtutorial</url>
+			</SubMenus>
+		</Module>
+	</Business>
+	<Business name="26">
+		<Module type="passport">
+			<Title_ms>Permohonan Pembaharuan Pasport</Title_ms>
+			<Title_en>Renewal Passport Application</Title_en>
+			<SubMenus>
+				<menu_ms>MyONLINE*PASPORT</menu_ms>
+				<menu_en>MyONLINE*PASPORT</menu_en>
+				<url>myPassport</url>
+			</SubMenus>
+			<SubMenus>
+				<menu_ms>Pertanyaan Status Permohonan</menu_ms>
+				<menu_en>Application Status Inquiry</menu_en>
+				<url>statusInquiry</url>
+			</SubMenus>
+			<!--
+SubMenus>
+            <menu_ms>Pertanyaan/Aduan/Cadangan</menu_ms>
+            <menu_en>Inquiry/Suggestion</menu_en>
+            <url>http://eis.imi.gov.my/feedback/index.php?lang=1</url>
+        </SubMenus
+			-->
+		</Module>
+	</Business>
+	<Business name="46">
+		<Module type="permit">
+			<Title_ms>Permohonan Permit</Title_ms>
+			<Title_en>Permit Application</Title_en>
+			<SubMenus>
+				<menu_ms>MyONLINE*PERMIT</menu_ms>
+				<menu_en>MyONLINE*PERMIT</menu_en>
+				<url>myPermit</url>
+				<parameter>appType=p</parameter>
+			</SubMenus>
+			<SubMenus>
+				<menu_ms>Cetak Borang Permohonan</menu_ms>
+				<menu_en>Print Form</menu_en>
+				<url>myPermit.cetakBorang</url>
+				<parameter>appType=p</parameter>
+			</SubMenus>
+			<SubMenus>
+				<menu_ms>Semak Status Permohonan</menu_ms>
+				<menu_en>Check Application Status</menu_en>
+				<url>myPermit.semak</url>
+				<parameter>appType=p</parameter>
+			</SubMenus>
+			<SubMenus>
+				<menu_ms>Manual</menu_ms>
+				<menu_en>Manual</menu_en>
+				<url>myPermit.downloadManual</url>
+				<parameter>appType=p</parameter>
+			</SubMenus>
+
+		</Module>
+		<Module type="pasresiden">
+			<Title_ms>Permohonan Pas Residen</Title_ms>
+			<Title_en>Pas Residen Application</Title_en>
+			<SubMenus>
+				<menu_ms>MyONLINE*RESIDENCE PASS</menu_ms>
+				<menu_en>MyONLINE*RESIDENCE PASS</menu_en>
+				<url>myPR</url>
+				<parameter>appType=rs</parameter>
+			</SubMenus>
+			<SubMenus>
+				<menu_ms>Semak Status Permohonan</menu_ms>
+				<menu_en>Check Application Status</menu_en>
+				<url>myPRSemak</url>
+				<parameter>appType=rs</parameter>
+			</SubMenus>
+			<SubMenus>
+				<menu_ms>Manual</menu_ms>
+				<menu_en>Manual</menu_en>
+				<url>myPR.downloadManual</url>
+				<parameter>appType=rs</parameter>
+			</SubMenus>
+
+		</Module>
+	</Business>
+	<Business name="94">
+		<Module type="register">
+			<Title_ms>Pendaftaran</Title_ms>
+			<Title_en>Registration</Title_en>
+			<SubMenus>
+				<menu_ms>Pendaftaran</menu_ms>
+				<menu_en>Registration</menu_en>
+				<url>register</url>
+			</SubMenus>
+		</Module>
+	</Business>
+	<Business name="36">
+		<Module type="visapass">
+			<Title_ms>MyONLINE*VISA DAN PAS</Title_ms>
+			<Title_en>MyONLINE*VISA AND PASS</Title_en>
+			<SubMenus>
+				<menu_ms>Pertanyaan Status Permohonan</menu_ms>
+				<menu_en>Application Status Inquiry</menu_en>
+				<url>enqApplSts</url>
+				<parameter>module=visapass</parameter>
+			</SubMenus>
+		</Module>
+		<Module type="iPLS">
+			<Title_ms>MyONLINE*PAS LAWATAN SOSIAL</Title_ms>
+			<Title_en>MyONLINE*SOCIAL VISIT PASS</Title_en>
+			<SubMenus>
+				<menu_ms>Permohonan Pas Lawatan Sosial</menu_ms>
+				<menu_en>Social Visit Pass Application</menu_en>
+				<url>iPlsApplication</url>
+				<parameter>module=iPLS</parameter>
+			</SubMenus>
+			<SubMenus>
+				<menu_ms>Pertanyaan Status Permohonan</menu_ms>
+				<menu_en>Application Status Inquiry</menu_en>
+				<url>iplsStatus</url>
+				<parameter>module=iPLS</parameter>
+			</SubMenus>
+		</Module>
+		<Module type="PLIK">
+			<Title_ms>MyONLINE*PAS LAWATAN IKHTISAS</Title_ms>
+			<Title_en>MyONLINE*PROFESSIONAL VISIT PASS</Title_en>
+			<SubMenus>
+				<menu_ms>Permohonan Pas Lawatan Ikhtisas</menu_ms>
+				<menu_en>Professional Visit Pass Application</menu_en>
+				<url>APVPRegApp</url>
+				<parameter>module=PLIK</parameter>
+			</SubMenus>
+			<SubMenus>
+				<menu_ms>Pertanyaan Status Permohonan</menu_ms>
+				<menu_en>Application Status Inquiry</menu_en>
+				<url>plikStatus</url>
+				<parameter>module=PLIK</parameter>
+			</SubMenus>
+		</Module>
+		<Module type="citizenSpouse">
+			<Title_ms>Pasangan Warganegara</Title_ms>
+			<Title_en>Citizen Spouse</Title_en>
+			<SubMenus>
+				<menu_ms>Permohonan Pas Pasangan Warganegara</menu_ms>
+				<menu_en>Citizen Spouse Pass Application</menu_en>
+				<url>CSPsApp</url>
+				<parameter>module=citizenSpouse</parameter>
+			</SubMenus>
+			<SubMenus>
+				<menu_ms>Pertanyaan Status Permohonan</menu_ms>
+				<menu_en>Application Status Inquiry</menu_en>
+				<url>CSStsInq</url>
+				<parameter>module=citizenSpouse</parameter>
+			</SubMenus>
+		</Module>
+		<Module type="visaPassAdvanced">
+			<Title_ms>Lanjutan Visa dan Pass</Title_ms>
+			<Title_en>Visa and Pass Advanced</Title_en>
+			<SubMenus>
+				<menu_ms>Permohonan Pas</menu_ms>
+				<menu_en>Pass Application</menu_en>
+				<url>VPAPsApp</url>
+				<parameter>module=visaPassAdvanced</parameter>
+			</SubMenus>
+			<SubMenus>
+				<menu_ms>Pertanyaan Status Permohonan</menu_ms>
+				<menu_en>Application Status Inquiry</menu_en>
+				<url>VPAStsInq</url>
+				<parameter>module=visaPassAdvanced</parameter>
+			</SubMenus>
+		</Module>
+		<Module type="ivisa">
+			<Title_ms>IVISA</Title_ms>
+			<Title_en>IVISA</Title_en>
+			<SubMenus>
+				<menu_ms>Pendaftaran Agen</menu_ms>
+				<menu_en>Agent Registration</menu_en>
+				<url>iVisaAgencyRegister</url>
+				<parameter>module=ivisa</parameter>
+			</SubMenus>
+		</Module>
+		<Module type="jkpd">
+			<Title_ms>MyONLINE*JKPD</Title_ms>
+			<Title_en>MyONLINE*JKPD</Title_en>
+			<SubMenus>
+				<menu_ms>Pertanyaan Status Permohonan - DP10</menu_ms>
+				<menu_en>Application Status Inquiry - DP10</menu_en>
+				<url>PDStatus</url>
+				<parameter>module=jkpd</parameter>
+			</SubMenus>
+			<SubMenus>
+				<menu_ms>Video Manual</menu_ms>
+				<menu_en>Video Manual</menu_en>
+				<url>PDvideoManual</url>
+        			<parameter>module=jkpd</parameter>
+			</SubMenus>
+		</Module>
+		<Module type="pra">
+			<Title_ms>MyONLINE*Pass Penggajian (DP11)</Title_ms>
+			<Title_en>MyONLINE*Payroll Pass (DP11)</Title_en>
+			<SubMenus>
+				<menu_ms>Permohonan Pas Penggajian (bukan JKPD)</menu_ms>
+				<menu_en>Employment Pass Application (not JKPD)</menu_en>
+				<url>PRAStatus</url>
+				<parameter>module=pra</parameter>
+			</SubMenus>
+			<SubMenus>
+				<menu_ms>Video Manual</menu_ms>
+				<menu_en>Video Manual</menu_en>
+				<url>PRAVideoManual</url>
+				<parameter>module=pra</parameter>
+			</SubMenus>
+		</Module>
+                <Module type="fomema">
+			<Title_ms>MyONLINE*Pekerja Asing</Title_ms>
+			<Title_en>MyONLINE*Foreign Workers</Title_en>
+			<SubMenus>
+				<menu_ms>Pertanyaan Status FOMEMA</menu_ms>
+				<menu_en>FOMEMA Application Status</menu_en>
+				<url>FomemaStatus</url>
+				<parameter>module=fomema</parameter>
+			</SubMenus>
+		</Module>
+                <Module type="dp11">
+			<Title_ms>MyONLINE*Pass Penggajian (DP11)</Title_ms>
+			<Title_en>MyONLINE*Employment Pass (DP11)</Title_en>
+                        <SubMenus>
+				<menu_ms>Permohonan Pas Penggajian (bukan JKPD)</menu_ms>
+				<menu_en>Employment Pass Application (non-JKPD)</menu_en>
+				<url>applEmpPassNonJKPD</url>
+				<parameter>module=dp11</parameter>
+			</SubMenus>
+			<SubMenus>
+				<menu_ms>Video Tutorial</menu_ms>
+				<menu_en>Video Tutorial</menu_en>
+				<url>NonJKPDVideoTut</url>
+				<parameter>module=dp11</parameter>
+			</SubMenus>
+		</Module>
+                <Module type="dp10">
+			<Title_ms>MyONLINE*PEGAWAI DAGANG (DP10)</Title_ms>
+			<Title_en>MyONLINE*Expatriate Pass (DP10)</Title_en>
+			<SubMenus>
+				<menu_ms>Daftar Maklumat Majikan</menu_ms>
+				<menu_en>Employer Registration</menu_en>
+				<url>PDRegEmployer</url>
+				<parameter>module=dp10</parameter>
+			</SubMenus>
+                        <SubMenus>
+				<menu_ms>Permohonan Jawatan Pegawai Dagang</menu_ms>
+				<menu_en>Expatriate Application</menu_en>
+				<url>PDRegPosition</url>
+				<parameter>module=dp10</parameter>
+			</SubMenus>
+		</Module>
+	</Business>
+        <Business name="56">
+		<Module type="csca">
+			<Title_ms>The Malaysian Country Signing CA (CSCA)</Title_ms>
+			<Title_en>The Malaysian Country Signing CA (CSCA)</Title_en>
+			<SubMenus>
+				<menu_ms> (CSCA)</menu_ms>
+				<menu_en> (CSCA)</menu_en>
+				<url>csca</url>
+			</SubMenus>
+		</Module>
+	</Business>
+</Menus>

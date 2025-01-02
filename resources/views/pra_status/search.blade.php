@@ -336,7 +336,7 @@ if (request()->query('lang') == 'en') {
         $(document).ready(function () {
             $.ajax({
                 type: "GET",
-                url: "{{asset('myimms/menu_xml.xml')}}",
+                url: "{{asset('myimms/menu_index.xml')}}",
                 dataType: "xml",
                 success: function (xml) {
                     parseXml(xml);
@@ -395,6 +395,8 @@ if (request()->query('lang') == 'en') {
                                 else
                                     arrPath += "?type=" + type + "&lang=" + 'ms';
 
+                                console.log(arrPath + vCls, xml)
+
                                 jList.append(
                                     $("<li><span ><a href = " + arrPath + vCls + ">" + arr + "</a></span></li>")
                                 );
@@ -445,7 +447,7 @@ if (request()->query('lang') == 'en') {
 <input type="hidden" name="hdCode" id="hdCode"/>
 <input type="hidden" name="counter" id="counter"/>
 
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
         <td height="96" width="775" background="{{asset('images/header/ms_Animated96.gif')}}">
             <table border="0" width="775">
@@ -543,279 +545,225 @@ if (request()->query('lang') == 'en') {
 
 
             </div>
+            <?php
+                $query["lang"] = app()->getLocale();
+            ?>
 
 
             <div class="form_container">
+                <form method="post" action="{{route('search', ["lang" => app()->getLocale()])}}" id="PRAStatus">
 
-                <input type="hidden" name="txnDetail">
-                <input type="hidden" name="SEARCH_IND" id="SEARCH_IND" value=""/>
+                    @csrf
+                    <input type="hidden" name="txnDetail">
+                    <input type="hidden" name="SEARCH_IND" id="SEARCH_IND" value=""/>
 
-                <input type="hidden" name="APPL_NO" id="APPL_NO"/>
-                <input type="hidden" name="FIN_NO" id="FIN_NO"/>
-                <input type="hidden" name="VSTR_TYP" id="VSTR_TYP" value="M"/>
-                <input type="hidden" name="CurrLang" id="CurrLang" value="{{request()->query('lang') ?? 'ms'}}"/>
+                    <input type="hidden" name="APPL_NO" id="APPL_NO"/>
+                    <input type="hidden" name="FIN_NO" id="FIN_NO"/>
+                    <input type="hidden" name="VSTR_TYP" id="VSTR_TYP" value="M"/>
+                    <input type="hidden" name="CurrLang" id="CurrLang" value="{{request()->query('lang') ?? 'ms'}}"/>
 
-                <div id="progressWin"
-                     style="display: block; top: 0; left: 0; width: 100%; height: 100%; position: absolute;">
-                    <div id="progressBg"
-                         style=" background-image: url('{{asset('styles/ui-lightness/images/ui-bg_diagonals-thick_20_666666_40x40.png')}}'); opacity: 0.6; filter: alpha(opacity=60); background-repeat: repeat; top: 0; left: 0; width: 100%; height: 100%; position: absolute; z-index: 1;"></div>
-                    <div id="progressTxt"
-                         style="font-size: 15px; font-weight: bold; position: absolute; top: 40%; width: 100%; overflow: visible; z-index: 2;"
-                         align="center">
-                        <table width="350px" align="center" bgcolor="grey"
-                               style="height: 80px; border-color: black; border-width: medium; border-style: solid; ">
+                    <div id="progressWin"
+                         style="display: block; top: 0; left: 0; width: 100%; height: 100%; position: absolute;">
+                        <div id="progressBg"
+                             style=" background-image: url('{{asset('styles/ui-lightness/images/ui-bg_diagonals-thick_20_666666_40x40.png')}}'); opacity: 0.6; filter: alpha(opacity=60); background-repeat: repeat; top: 0; left: 0; width: 100%; height: 100%; position: absolute; z-index: 1;"></div>
+                        <div id="progressTxt"
+                             style="font-size: 15px; font-weight: bold; position: absolute; top: 40%; width: 100%; overflow: visible; z-index: 2;"
+                             align="center">
+                            <table width="350px" align="center" bgcolor="grey"
+                                   style="height: 80px; border-color: black; border-width: medium; border-style: solid; ">
+                                <tr>
+                                    <td valign="middle" align="center">
+                                        <img src="{{asset('images/loading.gif')}}" border="0"/>
+                                        <BR>
+                                        Pemprosesan Sedang Dijalankan. Sila Tunggu . . .
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div>
+                        <table class="tblwidth" align="center" border="0" bgcolor="#F4F4FF">
+                            <tbody>
                             <tr>
-                                <td valign="middle" align="center">
-                                    <img src="{{asset('images/loading.gif')}}" border="0"/>
-                                    <BR>
-                                    Pemprosesan Sedang Dijalankan. Sila Tunggu . . .
+                                <td colspan="3" class="rowheader">Pertanyaan Status Pegawai Dagang (DP11)</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="label"><font color="red">* </font>{{ __("Application No.") }}</td>
+                                <td colspan="2"><input type="text" name="application" id="MAD_APPL_NO" maxlength="45"
+                                                       size="45" value="" style="text-transform: uppercase"></td>
+                            </tr>
+                            <tr>
+                                <td class="label"><font color="red">* </font>{{__("Company Registration No.")}}</td>
+                                <td colspan="2">
+                                    <input type="text" name="registration" id="MAD_ROC_NO" maxlength="20" size="45"
+                                           value="" style="text-transform: uppercase">
                                 </td>
+                            </tr>
+                            <tr>
+                                <td class="label">&nbsp;&nbsp;&nbsp;{{__("The poisonous face")}}</td>
+                                <td colspan="2">
+                                    <input type="text" name="document" id="MAD_DOC_NO" maxlength="20" size="45" value=""
+                                           style="text-transform: uppercase">
+                                    &nbsp;&nbsp;&nbsp;
+                                    <input type="submit" name="search" id="search" value="{{__("Search")}}"
+                                           style="width:100px">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <table class="tblwidth" align="center" border="0" bgcolor="#F4F4FF">
+
+                            <tr>
+                                <td colspan="6" height="20px"></td>
                             </tr>
                         </table>
                     </div>
-                </div>
-
-                <div>
-                    <form method="post" action="{{request()->fullUrl()}}" id="PRAStatus">
-                        @csrf
+                    <div>
                         <table class="tblwidth" align="center" border="0" bgcolor="#F4F4FF">
-                            <tr>
-                                <td colspan="5" class="rowheader">STATUS PERMOHONAN PEMBANTU RUMAH ASING / PEKERJA
-                                    ASING
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="20%">&nbsp;</td>
-                                <td width="20%">&nbsp;</td>
-                                <td width="7%">&nbsp;</td>
-                                <td width="20%">&nbsp;</td>
-                                <td width="33%">&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td colspan="5" bgcolor="#FFFF00">
-                                    <table border="0" style="font-weight: bold;">
-                                        <tr>
-                                            <td width="9%">&nbsp;</td>
-                                            <td width="1%">&nbsp;</td>
-                                            <td width="60%">&nbsp;</td>
-                                        </tr>
-                                        <tr valign="top">
-                                            <td colspan="3">
-                                                <span style="text-transform: uppercase;">Status :</span>
-                                            </td>
-                                        </tr>
-                                        <tr valign="top">
-                                            <td>{{__('APPLICATION RECEIVED')}}</td>
-                                            <td>-</td>
-                                            <td>{{__('Application is received.')}}</td>
-                                        </tr>
-                                        <tr valign="top">
-                                            <td>{{__('NEW')}}</td>
-                                            <td>-</td>
-                                            <td>{{__('Application has been received and are being processed by the Immigration Department of Malaysia. Please send the original copy of supporting documents if still not do so.')}}</td>
-                                        </tr>
-                                        <tr valign="top">
-                                            <td>{{__('APPROVE')}}</td>
-                                            <td>-</td>
-                                            <td>{{__('Application has been approved by the Immigration Department of Malaysia and is ready for Payment and print Stickers. Please make the FOMEMA check up if still not do so.')}}</td>
-                                        </tr>
-                                        <tr valign="top">
-                                            <td>{{__('REJECT')}}</td>
-                                            <td>-</td>
-                                            <td>{{__('Application has been rejected by the Immigration Department of Malaysia.')}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>{{__('CANCEL')}}</td>
-                                            <td>-</td>
-                                            <td>{{__('Application has been canceled by the Immigration Department of Malaysia.')}}</td>
-                                        </tr>
-                                        <tr valign="top">
-                                            <td>{{__('PAY')}}</td>
-                                            <td>-</td>
-                                            <td>{{__('Application has been paid and ready to print Stickers.')}}</td>
-                                        </tr>
-                                        <tr valign="top">
-                                            <td>{{__('PRINT')}}</td>
-                                            <td>-</td>
-                                            <td>{{__('Stickers have been printed and ready to be collected.')}}</td>
-                                        </tr>
-                                        <tr valign="top">
-                                            <td>{{__('POSTPONE')}}</td>
-                                            <td>-</td>
-                                            <td>{{__('Application has been postponed by the Immigration Department of Malaysia.')}}</td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="5">&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <input type="hidden" name="MAD_ROC_NO" id="MAD_ROC_NO"
-                                       value="{{request()->MAD_ROC_NO ?? null}}"/>
-                                <td class="labelM_3">{{__('Employer Identification Card No.')}}</td>
-                                <td><input name="MAD_ROC_NO1" type="text" id="MAD_ROC_NO1"
-                                           value="{{request()->MAD_ROC_NO1 ?? null}}" size="35" maxlength="20"
-                                           style="text-transform: uppercase">
-                                    <BR>( {{__('Format Example')}} : 999999-99-9999 )
-                                </td>
-                                <td align="center"><B>{{__('OR')}}</B></td>
-                                <td class="labelM_3">{{__('Company Registration No.')}}</td>
-                                <td><input name="MAD_ROC_NO2" type="text" id="MAD_ROC_NO2"
-                                           value="{{request()->MAD_ROC_NO2 ?? null}}" size="35" maxlength="20"
-                                           style="text-transform: uppercase"></td>
-                            </tr>
-                            <tr>
-                                <td class="labelM_3">{{__('Application Number')}}</td>
-                                <td colspan="3">
-                                    <input name="MAD_APPL_NO" type="text" id="MAD_APPL_NO"
-                                           value="{{request()->MAD_APPL_NO ?? null}}" size="51" maxlength="45"
-                                           style="text-transform: uppercase" class="required"/>
-                                    <div id="VIEW_IMG" style="position: absolute; cursor: hand;"><img
-                                            src="{{asset('images/search_icon.png')}}" border="0"
-                                            alt="{{__('View Sample')}}">{{__('View Sample')}}
-                                    </div>
-                                </td>
-                                <td><input name="agencyIndicator" type="hidden" id="agencyIndicator" value="1"/></td>
+                            <tr class="subheader">
+                                <td width="5%">{{ __("Bil") }}</td>
+                                <td width="10%">{{ __("Tarikh Permohonan") }}</td>
+                                <td width="20%">{{ __("No Permohonan") }}</td>
+                                <td width="20%">{{ __("Nama Pemohon") }}</td>
+                                <td width="15%">{{ __("Warganegara") }}</td>
+                                <td width="15%">{{ __("No Dokumen") }}</td>
+                                <td width="10%">{{ __("Status Permohonan") }}</td>
+                                <td width="5%">&nbsp;</td>
                             </tr>
 
-                            <tr>
-                                <td colspan="5">&nbsp;</td>
-                            </tr>
-
-                            <tr>
-                                <td colspan="5">
-                                    <input type="submit" name="searchStatusPRA" id="searchStatusPRA"
-                                           value="{{__('Search')}}"
-                                           onclick="return fnSearchRocNo();" style="width: 100px;"/>
-                                    <a class="btn" href="{{route('pra_status')}}">{{__('RESET')}}</a>
-{{--                                    <input type="reset" id="view" name="view" value="{{__('RESET')}}" style="width: 100px;">--}}
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td colspan="5">&nbsp;</td>
-                            </tr>
-                        </table>
-                    </form>
-                </div>
-                <div>
-                    <table class="tblwidth" align="center" border="0" bgcolor="#F4F4FF">
-
-                        <tr>
-                            <td colspan="6" height="20px"></td>
-                        </tr>
-                    </table>
-                </div>
-                <div>
-                    <table class="tblwidth" align="center" border="0" bgcolor="#F4F4FF">
-                        <tr class="subheader">
-                            <td width="5%">{{__('No')}}</td>
-                            <td width="20%">{{__('Application Number')}}</td>
-                            <td width="11%">{{__('Employer Identification Card No.')}}
-                                / {{__('Company Registration No.')}}</td>
-                            <td width="25%">{{__('Maid Name/Employee')}}</td>
-                            <td width="15%">{{__('Document Number')}}</td>
-                            <td width="14%">{{__('Status')}}</td>
-
-                        </tr>
-
-                        @foreach($pra_status_list as $pra_status)
-                            <tr class="grida" align="center">
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{$pra_status->application_no}}</td>
-                                @if($pra_status->employer_identification_card_no && $pra_status->company_registration_no)
+                            @foreach($pra_status_list as $pra_status)
+                                <tr class="grida" align="center">
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{\Carbon\Carbon::parse($pra_status->application_date)}}</td>
+                                    <td>{{$pra_status->application_no}}</td>
+                                    <td>{{$pra_status->employee_name}}</td>
                                     <td>{{$pra_status->employer_identification_card_no}}
-                                        / {{$pra_status->company_registration_no}}</td>
-                                @elseif($pra_status->employer_identification_card_no)
-                                    <td>{{$pra_status->employer_identification_card_no}}</td>
-                                @else
-                                    <td>{{$pra_status->company_registration_no}}</td>
-                                @endif
-                                <td>{{$pra_status->employee_name}}</td>
-                                <td>{{$pra_status->document_no}}</td>
-                                <td>{{__($pra_status->status)}}</td>
-
-                            </tr>
-                        @endforeach
+                                    <td>{{$pra_status->document_no}}</td>
+                                    <td>{{__($pra_status->status)}}</td>
+                                </tr>
+                            @endforeach
 
 
-                        <tr>
-                            <td colspan="3" style="height: 10px;"><font style="font-weight: bolder">{{__("Total Record")}}
-                                    : {{$pra_status_list->total()}}</font></td>
-                            <td colspan="3" style="height: 10px; text-align: right">
+                            <tr>
+                                <td colspan="3" style="height: 10px;"><font
+                                        style="font-weight: bolder">{{__("Total Record")}}
+                                        : {{$pra_status_list->total()}}</font></td>
+                                <td colspan="4" style="height: 10px; text-align: right">
 
-                                <?php
+                                    <?php
                                     $query = request()->query();
                                     $query["page"] = 1;
-                                ?>
-                                <form action="{{route('pra_status_search', $query)}}" method="post" style="display: inline-block">
-                                    @csrf
-                                    <input type="submit" name="searchStatusPRA" value="&nbsp;Ι&nbsp;<&nbsp;" title="Click here to show first page records">
-                                    <input name="MAD_ROC_NO1" type="hidden" value="{{request()->MAD_ROC_NO1 ?? null}}" size="35" maxlength="20" style="text-transform: uppercase">
-                                    <input name="MAD_ROC_NO2" type="hidden" value="{{request()->MAD_ROC_NO2 ?? null}}" size="35" maxlength="20" style="text-transform: uppercase">
-                                    <input name="MAD_APPL_NO" type="hidden" value="{{request()->MAD_APPL_NO ?? null}}" size="51" maxlength="45" style="text-transform: uppercase">
-                                </form>
+                                    ?>
+                                    <form action="{{route('search', $query)}}" method="post"
+                                          style="display: inline-block">
+                                        @csrf
+                                        <input type="submit" name="searchStatusPRA" value="&nbsp;Ι&nbsp;<&nbsp;"
+                                               title="Click here to show first page records">
+                                        <input name="MAD_ROC_NO1" type="hidden"
+                                               value="{{request()->MAD_ROC_NO1 ?? null}}" size="35" maxlength="20"
+                                               style="text-transform: uppercase">
+                                        <input name="MAD_ROC_NO2" type="hidden"
+                                               value="{{request()->MAD_ROC_NO2 ?? null}}" size="35" maxlength="20"
+                                               style="text-transform: uppercase">
+                                        <input name="MAD_APPL_NO" type="hidden"
+                                               value="{{request()->MAD_APPL_NO ?? null}}" size="51" maxlength="45"
+                                               style="text-transform: uppercase">
+                                    </form>
 
-                                <?php
+                                    <?php
                                     $query['page'] = $pra_status_list->currentPage() - 1;
-                                ?>
-                                <form action="{{route('pra_status_search', $query)}}" method="post" style="display: inline-block">
-                                    @csrf
-                                    <input name="MAD_ROC_NO1" type="hidden" value="{{request()->MAD_ROC_NO1 ?? null}}" size="35" maxlength="20" style="text-transform: uppercase">
-                                    <input name="MAD_ROC_NO2" type="hidden" value="{{request()->MAD_ROC_NO2 ?? null}}" size="35" maxlength="20" style="text-transform: uppercase">
-                                    <input name="MAD_APPL_NO" type="hidden" value="{{request()->MAD_APPL_NO ?? null}}" size="51" maxlength="45" style="text-transform: uppercase">
-                                    <input type="submit" name="searchStatusPRA" value="&nbsp;<<&nbsp;" title="Click here to show previous page records" @if($pra_status_list->currentPage() == 1) disabled @endif>
-                                </form>
+                                    ?>
+                                    <form action="{{route('search', $query)}}" method="post"
+                                          style="display: inline-block">
+                                        @csrf
+                                        <input name="MAD_ROC_NO1" type="hidden"
+                                               value="{{request()->MAD_ROC_NO1 ?? null}}" size="35" maxlength="20"
+                                               style="text-transform: uppercase">
+                                        <input name="MAD_ROC_NO2" type="hidden"
+                                               value="{{request()->MAD_ROC_NO2 ?? null}}" size="35" maxlength="20"
+                                               style="text-transform: uppercase">
+                                        <input name="MAD_APPL_NO" type="hidden"
+                                               value="{{request()->MAD_APPL_NO ?? null}}" size="51" maxlength="45"
+                                               style="text-transform: uppercase">
+                                        <input type="submit" name="searchStatusPRA" value="&nbsp;<<&nbsp;"
+                                               title="Click here to show previous page records"
+                                               @if($pra_status_list->currentPage() == 1) disabled @endif>
+                                    </form>
 
 
+                                    &nbsp;<input type="text" name="currentPgNo"
+                                                 value="{{$pra_status_list->currentPage()}}"
+                                                 size="{{$pra_status_list->lastPage()}}"><font
+                                        style="font-weight: bolder">&nbsp;{{__("of")}}
+                                        &nbsp; {{$pra_status_list->lastPage()}}</font>
+                                    &nbsp;<input type="submit" name="searchStatusPRA" value="{{__('GO')}}"
+                                                 title="Click Here to find specific page number"
+                                                 onclick="return gotoPageNo('go');">
 
-
-
-                                &nbsp;<input type="text" name="currentPgNo" value="{{$pra_status_list->currentPage()}}"
-                                             size="{{$pra_status_list->lastPage()}}"><font style="font-weight: bolder">&nbsp;{{__("of")}}&nbsp; {{$pra_status_list->lastPage()}}</font>
-                                &nbsp;<input type="submit" name="searchStatusPRA" value="{{__('GO')}}"
-                                             title="Click Here to find specific page number"
-                                             onclick="return gotoPageNo('go');">
-
-                                <?php
+                                    <?php
                                     $query['page'] = $pra_status_list->currentPage() + 1;
-                                ?>
+                                    ?>
 
-                                <form action="{{route('pra_status_search', $query)}}" method="post" style="display: inline-block">
-                                    @csrf
-                                    <input name="MAD_ROC_NO1" type="hidden" value="{{request()->MAD_ROC_NO1 ?? null}}" size="35" maxlength="20" style="text-transform: uppercase">
-                                    <input name="MAD_ROC_NO2" type="hidden" value="{{request()->MAD_ROC_NO2 ?? null}}" size="35" maxlength="20" style="text-transform: uppercase">
-                                    <input name="MAD_APPL_NO" type="hidden" value="{{request()->MAD_APPL_NO ?? null}}" size="51" maxlength="45" style="text-transform: uppercase">
-                                    <input type="submit" name="searchStatusPRA" value="&nbsp;>>&nbsp;" title="Click here to show next page records" @if($pra_status_list->currentPage() == $pra_status_list->lastPage()) disabled @endif>
-                                </form>
+                                    <form action="{{route('search', $query)}}" method="post"
+                                          style="display: inline-block">
+                                        @csrf
+                                        <input name="MAD_ROC_NO1" type="hidden"
+                                               value="{{request()->MAD_ROC_NO1 ?? null}}" size="35" maxlength="20"
+                                               style="text-transform: uppercase">
+                                        <input name="MAD_ROC_NO2" type="hidden"
+                                               value="{{request()->MAD_ROC_NO2 ?? null}}" size="35" maxlength="20"
+                                               style="text-transform: uppercase">
+                                        <input name="MAD_APPL_NO" type="hidden"
+                                               value="{{request()->MAD_APPL_NO ?? null}}" size="51" maxlength="45"
+                                               style="text-transform: uppercase">
+                                        <input type="submit" name="searchStatusPRA" value="&nbsp;>>&nbsp;"
+                                               title="Click here to show next page records"
+                                               @if($pra_status_list->currentPage() == $pra_status_list->lastPage()) disabled @endif>
+                                    </form>
 
 
-
-                                <?php
+                                    <?php
                                     $query["page"] = $pra_status_list->lastPage();
-                                ?>
-                                <form action="{{route('pra_status_search', $query)}}" method="post" style="display: inline-block">
-                                    @csrf
-                                    <input name="MAD_ROC_NO1" type="hidden" value="{{request()->MAD_ROC_NO1 ?? null}}" size="35" maxlength="20" style="text-transform: uppercase">
-                                    <input name="MAD_ROC_NO2" type="hidden" value="{{request()->MAD_ROC_NO2 ?? null}}" size="35" maxlength="20" style="text-transform: uppercase">
-                                    <input name="MAD_APPL_NO" type="hidden" value="{{request()->MAD_APPL_NO ?? null}}" size="51" maxlength="45" style="text-transform: uppercase">
-                                    <input type="submit" name="searchStatusPRA" value=" > Ι " title="Click here to show last page records" @if($pra_status_list->currentPage() == $pra_status_list->lastPage()) disabled @endif>
-                                </form>
+                                    ?>
+                                    <form action="{{route('search', $query)}}" method="post"
+                                          style="display: inline-block">
+                                        @csrf
+                                        <input name="MAD_ROC_NO1" type="hidden"
+                                               value="{{request()->MAD_ROC_NO1 ?? null}}" size="35" maxlength="20"
+                                               style="text-transform: uppercase">
+                                        <input name="MAD_ROC_NO2" type="hidden"
+                                               value="{{request()->MAD_ROC_NO2 ?? null}}" size="35" maxlength="20"
+                                               style="text-transform: uppercase">
+                                        <input name="MAD_APPL_NO" type="hidden"
+                                               value="{{request()->MAD_APPL_NO ?? null}}" size="51" maxlength="45"
+                                               style="text-transform: uppercase">
+                                        <input type="submit" name="searchStatusPRA" value=" > Ι "
+                                               title="Click here to show last page records"
+                                               @if($pra_status_list->currentPage() == $pra_status_list->lastPage()) disabled @endif>
+                                    </form>
 
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
 
-                        <tr>
-                            <td colspan="6" height="20px"></td>
-                        </tr>
-                    </table>
-                </div>
+                            <tr>
+                                <td colspan="6" height="20px"></td>
+                            </tr>
+                        </table>
+                    </div>
 
-                <div style="display: none;"><input type="hidden" name="_sourcePage"
-                                                   value="akRvQcK6Gq1ICUgpjXoFvI4ZzQL1UdQ0SQUW6bS2A4WlfZ4pTO9M139jCjT_KMa0"/><input
-                        type="hidden" name="__fp" value="Xw1fVIK1PQ0="/></div>
-
+                    <div style="display: none;"><input type="hidden" name="_sourcePage"
+                                                       value="akRvQcK6Gq1ICUgpjXoFvI4ZzQL1UdQ0SQUW6bS2A4WlfZ4pTO9M139jCjT_KMa0"/><input
+                            type="hidden" name="__fp" value="Xw1fVIK1PQ0="/></div>
+                </form>
             </div>
 
 
@@ -824,3 +772,4 @@ if (request()->query('lang') == 'en') {
 </div>
 </BODY>
 </HTML>
+

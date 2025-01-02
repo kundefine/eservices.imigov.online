@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ExampleController;
+use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,8 +26,11 @@ require_once __DIR__ . '/nobel-ui_routes.php';
 
 
 Route::get("/my/myimms/PRAStatus", [\App\Http\Controllers\PraStatusController::class, 'index'])->name('pra_status');
-Route::post("/my/myimms/PRAStatus", [\App\Http\Controllers\PraStatusController::class, 'search'])->name('pra_status_search');
-Route::redirect('/', "/my/myimms/PRAStatus");
+
+
+Route::get("/", [IndexController::class, 'index'])->name('index');
+Route::post("/", [\App\Http\Controllers\IndexController::class, 'search'])->name('search');
+
 
 
 Auth::routes();
