@@ -643,7 +643,7 @@ if (request()->query('lang') == 'en') {
                             @foreach($pra_status_list as $pra_status)
                                 <tr class="grida" align="center">
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{\Carbon\Carbon::parse($pra_status->application_date)}}</td>
+                                    <td>{{\Carbon\Carbon::parse($pra_status->application_date)->format('d/m/y')}}</td>
                                     <td>{{$pra_status->application_no}}</td>
                                     <td>{{$pra_status->employee_name}}</td>
                                     <td>{{$pra_status->employer_identification_card_no}}

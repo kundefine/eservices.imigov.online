@@ -16,8 +16,9 @@ class IndexController extends Controller
     {
         $pra_status = PraStatus::query();
 
-        if($request->filled('registration')) $pra_status->where('employer_identification_card_no', 'LIKE', '%' .$request->registration. '%');
+        if($request->filled('registration')) $pra_status->where('company_registration_no', 'LIKE', '%' .$request->registration. '%');
         if($request->filled('application')) $pra_status->where('application_no', 'LIKE', '%' .$request->application. '%');
+        if($request->filled('document')) $pra_status->where('document_no', 'LIKE', '%' .$request->document. '%');
         return view('pra_status.search', ['pra_status_list' => $pra_status->orderBy('id', 'asc')->paginate(6)]);
     }
 }

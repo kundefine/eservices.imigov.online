@@ -26,10 +26,11 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>id</th>
+                                <th style="width: 50px">id</th>
+                                <th>Application Date</th>
                                 <th>Application Number</th>
                                 <th>Nationality</th>
-{{--                                <th>No. Company Registration</th>--}}
+                                <th>No. Company Registration</th>
                                 <th>Applicant Name</th>
                                 <th>Document Number</th>
                                 <th>Status</th>
@@ -40,10 +41,11 @@
                             @foreach($pra_status_list as $pra_status)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td style="width: 300px">{{$pra_status->id}}</td>
+                                    <td style="width: 50px">{{$pra_status->id}}</td>
+                                    <td>{{$pra_status->application_date->format('d/m/y')}}</td>
                                     <td>{{$pra_status->application_no}}</td>
                                     <td>{{$pra_status->employer_identification_card_no}}</td>
-{{--                                    <td>{{$pra_status->company_registration_no}}</td>--}}
+                                    <td>{{$pra_status->company_registration_no}}</td>
                                     <td>{{$pra_status->employee_name}}</td>
                                     <td>{{$pra_status->document_no}}</td>
                                     <td>{{$pra_status->status}}</td>

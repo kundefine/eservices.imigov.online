@@ -28,7 +28,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="" class="">Application Date</label>
-                                <input type="date" class="form-control" name="application_date" value="{{$pra_status->application_date}}">
+                                <input type="date" id="start" class="form-control" name="application_date" value="{{$pra_status->application_date->format('Y-m-d')}}" />
                             </div>
 
                             <div class="form-group">

@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class PraStatus extends Model
 {
-    protected $guarded = [];
     use HasFactory;
+
+    protected $guarded = [];
+
+    protected $casts = [
+        'application_date' => 'date',
+    ];
 }
