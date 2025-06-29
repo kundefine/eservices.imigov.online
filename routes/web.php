@@ -25,13 +25,14 @@ require_once __DIR__ . '/nobel-ui_routes.php';
 
 
 
-Route::get("/my/myimms/PRAStatus", [\App\Http\Controllers\PraStatusController::class, 'index'])->name('pra_status');
+//Route::get("/my/myimms/PRAStatus", [\App\Http\Controllers\PraStatusController::class, 'index'])->name('pra_status');
 
 
 Route::get("/myimms/PRAstatus/DP10", [IndexController::class, 'index'])->name('index');
-Route::post("/", [\App\Http\Controllers\IndexController::class, 'search'])->name('search');
+Route::post("/myimms/PRAstatus/DP10", [\App\Http\Controllers\IndexController::class, 'search'])->name('search');
 
 Route::redirect('/', '/myimms/PRAstatus/DP10');
+Route::redirect("/my/myimms/PRAStatus", '/')->name('pra_status');
 
 
 
