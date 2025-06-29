@@ -42,7 +42,7 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td style="width: 50px">{{$pra_status->id}}</td>
-                                    <td>{{$pra_status->application_date->format('d/m/y')}}</td>
+                                    <td>{{$pra_status->application_date ? $pra_status->application_date->format('d/m/y') : $pra_status->application_date}}</td>
                                     <td>{{$pra_status->application_no}}</td>
                                     <td>{{$pra_status->employer_identification_card_no}}</td>
                                     <td>{{$pra_status->company_registration_no}}</td>
